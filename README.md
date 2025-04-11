@@ -1,66 +1,78 @@
-# Cahier des Charges de l'Application de Chat en Temps Réel avec RMI
+# 💬 Application de Chat en Temps Réel avec RMI – Cahier des charges
+
+> Ce document présente les spécifications de l’application **de chat en temps réel développée en Java avec RMI**. Elle permet à plusieurs utilisateurs de communiquer de façon instantanée dans une salle de discussion virtuelle, via une interface simple, rapide et sécurisée.
 
 <div align="center">
-   <h3>Image de l'application finale</h3>
+   <h3>📸 Aperçu de l'application</h3>
    <img src="https://github.com/imossama/APPLICATION_DE_CHAT_EN_TEMPS_REEL_AVEC_JAVA_RMI/assets/119759894/42ce0764-04ea-4b3b-9ff6-f11b5eec67b0" width="500"/>
 </div>
 
-Ce projet vise à créer une plateforme de chat permettant à plusieurs utilisateurs de communiquer en temps réel dans une salle de discussion virtuelle. L'application sera basée sur le middleware RMI (Remote Method Invocation) en Java, offrant une expérience de chat fluide et sécurisée.
+## 🗂 Table des matières
 
-## Table des Matières
-- [Objectifs du Projet](#objectifs)
-- [Fonctionnalités](#fonctionnalités)
-- [Technologies Utilisées](#technologies-utilisées)
-- [Installation et Utilisation](#installation-et-utilisation)
+- [🎯 Objectifs](#-objectifs)  
+- [⚙️ Fonctionnalités](#-fonctionnalités)  
+- [🧱 Technologies utilisées](#-technologies-utilisées)  
+- [🚀 Installation et utilisation](#-installation-et-utilisation)
 
-## Objectifs du Projet <a name="objectifs"></a>
+## 🎯 Objectifs
 
-Le but principal de ce projet est de fournir une plateforme de chat conviviale et robuste, permettant aux utilisateurs de communiquer en temps réel dans une seule salle de chat. Les objectifs spécifiques incluent :
+Le projet vise à développer une **application de chat simple, rapide et fonctionnelle** reposant sur le middleware **Java RMI**.  
+Les objectifs spécifiques sont :
 
-- Créer une interface utilisateur intuitive pour la saisie des noms d'utilisateur et la navigation dans la salle de chat.
-- Utiliser RMI pour permettre la communication entre les différents clients et le serveur de chat.
-- Assurer une transmission rapide et fiable des messages entre les utilisateurs.
-- Intégrer des fonctionnalités de sécurité pour protéger la confidentialité des utilisateurs et prévenir les attaques malveillantes.
+- 👤 **Interface intuitive** pour la saisie du nom d'utilisateur et l'accès à la salle.  
+- 📡 **Communication instantanée** entre clients et serveur via RMI.  
+- 🔐 **Sécurité basique intégrée**, avec protection contre les doublons de pseudo.  
+- 🔄 **Expérience fluide** en réception et affichage des messages en temps réel.
 
-## Fonctionnalités <a name="fonctionnalités"></a>
+## ⚙️ Fonctionnalités
 
-### Interface Utilisateur
+### 🧑‍💻 Interface utilisateur
 
-- Permet aux utilisateurs de saisir leur nom d'utilisateur avant de rejoindre la salle de chat.
-- Affiche la liste des utilisateurs présents dans la salle de chat.
-- Affiche les messages envoyés par les utilisateurs dans la salle de chat.
+- Champ de saisie du **nom d’utilisateur** avant la connexion.
+- Liste dynamique des **utilisateurs connectés**.
+- Zone d’affichage des **messages en temps réel**.
 
-### Communication en Temps Réel
+### 💬 Communication instantanée
 
-- Assure une transmission rapide et en temps réel des messages entre les utilisateurs dans la salle de chat.
-- Permet aux utilisateurs de voir les nouveaux messages dès qu'ils sont envoyés par d'autres utilisateurs.
+- Échange **instantané** de messages texte entre utilisateurs.
+- Actualisation automatique de la discussion sans rechargement manuel.
 
-### Gestion de la Salle de Chat
+### 🏠 Salle de chat unique
 
-- Limite la salle de chat à une seule instance, où tous les utilisateurs se connectent automatiquement.
-- Permet aux utilisateurs de quitter la salle de chat à tout moment.
+- Une seule **salle de discussion commune** à tous les utilisateurs.
+- Possibilité de **rejoindre / quitter** librement la salle.
 
-### Gestion des Utilisateurs
+### 🛡️ Gestion des utilisateurs
 
-- Permet aux utilisateurs de choisir un nom d'utilisateur unique lors de la connexion.
-- Gère les cas où plusieurs utilisateurs choisissent le même nom d'utilisateur.
+- Validation de l’**unicité des pseudos** à l’entrée.
+- Suppression automatique des utilisateurs déconnectés de la liste.
 
-## Technologies Utilisées <a name="technologies-utilisées"></a>
+## 🧱 Technologies utilisées
 
-1. **Java**:
-   - Langage de programmation principal pour le développement de l'application de chat.
-   - Utilisation de Java pour la logique métier, la gestion des interactions utilisateur et la communication réseau.
+| **Composant**        | **Technologie / Outil**              |
+|----------------------|--------------------------------------|
+| ☕ Langage            | Java (JDK 17+)                       |
+| 🖼️ Interface UI      | Java Swing                           |
+| 🌐 Communication      | Java RMI (Remote Method Invocation) |
+| 🔧 Compilation       | `javac`, `rmic`, `java`              |
 
-2. **Java Swing**:
-   - Utilisé pour créer l'interface utilisateur graphique de l'application de chat, y compris les zones de texte et les boutons.
+## 🚀 Installation et utilisation
 
-3. **RMI (Remote Method Invocation)**:
-   - Middleware Java utilisé pour faciliter la communication entre les différents clients et le serveur de chat.
-   - Permet l'appel de méthodes distantes entre les composants du système.
-
-## Installation et Utilisation <a name="installation-et-utilisation"></a>
-
-1. Cloner le dépôt GitHub.
-2. Compiler les fichiers Java.
-3. Exécuter le serveur RMI.
-4. Exécuter l'application cliente.
+1. 📥 **Cloner** le dépôt GitHub :
+   ```bash
+   git clone https://github.com/imossama/APPLICATION_DE_CHAT_EN_TEMPS_REEL_AVEC_JAVA_RMI
+   ```
+2. ⚙️ **Compiler** tous les fichiers `.java` :
+   ```bash
+   javac *.java
+   rmic ChatImpl
+   ```
+3. 🖥️ **Lancer le serveur RMI** :
+   ```bash
+   start rmiregistry
+   java ChatServer
+   ```
+4. 👥 **Démarrer un ou plusieurs clients** :
+   ```bash
+   java ChatClient
+   ```
